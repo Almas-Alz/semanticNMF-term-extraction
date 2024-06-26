@@ -1,4 +1,4 @@
-// function for extraction of top N terms
+# function for extraction of top N terms
 def get_top_terms(coefs, features, top_N, flat=True):
 
     num_terms, num_topics = coefs.shape
@@ -17,7 +17,7 @@ def get_top_terms(coefs, features, top_N, flat=True):
             ]
     return sorted_terms
 
-// function to calculate metrics
+# function to calculate metrics
 def calculate_metrics(true_terms, extracted_terms, all_terms):
     true_positives  = len(true_terms.intersection(extracted_terms))
     false_positives = len(extracted_terms.difference(true_terms))
@@ -32,7 +32,7 @@ def calculate_metrics(true_terms, extracted_terms, all_terms):
 
     return np.round(accuracy, 3), np.round(precision, 3), np.round(recall, 3), np.round(f1_score, 3)
 
-// semantic NMF algorithm
+# semantic NMF algorithm
 def nmf_lee_seung_gpu(V, r, M, e, l=2, max_iter=2000, eps=1e-4, nnsvd_init=True):
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
